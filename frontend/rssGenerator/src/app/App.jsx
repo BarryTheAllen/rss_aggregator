@@ -4,9 +4,11 @@ import Routing from "@/routes";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routing />
-    </BrowserRouter>
+    <div className={styles.wrapper}>
+      <BrowserRouter>
+        <Routing />
+      </BrowserRouter>
+    </div>
   );
 }
 

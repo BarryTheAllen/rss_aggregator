@@ -6,10 +6,12 @@
 
 body {
     font-family: 'Roboto';
+    scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 ul, ol {
