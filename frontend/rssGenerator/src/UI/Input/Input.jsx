@@ -1,8 +1,13 @@
 import styles from "./Input.module.css";
 
-const Input = ({ placeholder, type }) => {
+const Input = ({ placeholder, type, ...props }) => {
   return (
-    <input className={styles.input} placeholder={placeholder} type={type} />
+    <input
+      className={styles.input}
+      placeholder={placeholder}
+      type={type}
+      {...props}
+    />
   );
 };
 

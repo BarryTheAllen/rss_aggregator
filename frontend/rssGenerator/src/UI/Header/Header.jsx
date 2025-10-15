@@ -1,13 +1,12 @@
 import { Link } from "react-router";
 import styles from "./Header.module.css";
-import logo from "./assets/logo.png";
+import Logo from "../Logo/";
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <Link to={"/Home"} className={styles.logo}>
-        <img src={logo} alt="Logo" className={styles.logoImg} />
-        <h1 className={styles.logoTitle}>Rss agregator</h1>
+      <Link to={"/Home"}>
+        <Logo />
       </Link>
       <nav>
         <Link to={"/Login"}>Login</Link>
