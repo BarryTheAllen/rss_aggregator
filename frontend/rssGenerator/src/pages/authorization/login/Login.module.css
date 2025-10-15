@@ -1,6 +1,6 @@
 .loginForm {
   width: 300px;
-  height: 300px;
+  height: 400px;
   display: flex;
   position: absolute;
   top: 20%;
@@ -16,4 +16,13 @@
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   background: white;
+}
+
+.error {
+  font-size: 12px;
+  color: #b93e3e;
+}
+
+.formTitle {
+  color: #353333;
 }

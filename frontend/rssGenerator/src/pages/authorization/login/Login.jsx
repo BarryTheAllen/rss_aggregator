@@ -14,8 +14,6 @@ const Login = () => {
     passwordErr: ""
   });
 
-  console.log(form);
-
   const handleChangeInput = e => {
     const key = e.target.name;
     const newValue = e.target.value;
@@ -23,55 +21,50 @@ const Login = () => {
       ...prev,
       [key]: newValue
     }));
+
+    if (formError[key + "Err"]) {
+      setFormError(prev => ({ ...prev, [key + "Err"]: "" }));
+    }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    let hasError = false;
-    const newErrors = { identifierErr: "", passwordErr: "" };
-
-    if (!form.identifier.trim()) {
-      newErrors.identifierErr = "Поле обязательно для заполнения";
-      hasError = true;
-    } else if (form.identifier.length < 3) {
-      newErrors.identifierErr = "Логин не может быть меньше 3 символов";
-      hasError = true;
+    if (form.identifier.length < 3) {
+      setFormError(prev => ({
+        ...prev,
+        identifierErr: "Логин не может быть меньше 3 символов"
+      }));
     }
-
-    if (!form.password.trim()) {
-      newErrors.passwordErr = "Поле обязательно для заполнения";
-      hasError = true;
-    } else if (form.password.length < 6) {
-      newErrors.passwordErr = "Пароль не может быть меньше 6 символов";
-      hasError = true;
-    }
-
-    if (hasError) {
-      setFormError(newErrors);
-      return;
+    if (form.password.length < 6) {
+      setFormError(prev => ({
+        ...prev,
+        passwordErr: "Пароль не может быть меньше 6 символов"
+      }));
     }
   };
 
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
       <Logo />
+      <h1 className={styles.formTitle}>Login</h1>
       <Input
         placeholder={"Логин или email"}
         type={"text"}
         name="identifier"
-        required
         onChange={handleChangeInput}
       />
-      {formError.identifierErr}
+      {formError.identifierErr && (
+        <span className={styles.error}>{formError.identifierErr}</span>
+      )}
       <Input
         placeholder={"Пароль"}
         type={"password"}
         name="password"
-        required
         onChange={handleChangeInput}
       />
-      {formError.passwordErr}
+      {formError.passwordErr && (
+        <span className={styles.error}>{formError.passwordErr}</span>
+      )}
       <Button text={"Войти"} type="submit" />
     </form>
   );

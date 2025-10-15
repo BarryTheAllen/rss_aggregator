@@ -8,8 +8,14 @@ const Header = () => {
       <Link to={"/Home"}>
         <Logo />
       </Link>
-      <nav>
-        <Link to={"/Login"}>Login</Link>
+      <nav className={styles.nav}>
+        <Link to={"/Login"} className={styles.link}>
+          Login
+        </Link>
+        |
+        <Link to={"Registration"} className={styles.link}>
+          Registration
+        </Link>
       </nav>
     </header>
   );

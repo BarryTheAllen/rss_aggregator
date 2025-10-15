@@ -4,8 +4,13 @@ import logo from "./assets/logo.png";
 const Logo = () => {
   return (
     <div className={styles.logo}>
-      <img src={logo} alt="logo" className={styles.logoImg} />
-      <h1 className={styles.logoTitle}>Rss agregator</h1>
+      <div className={styles.block}>
+        <img src={logo} alt="logo" className={styles.logoImg} />
+        <h1 className={styles.logoTitle}>Rss agregator</h1>
+      </div>
+      <span className={styles.logoDesc}>
+        Instant access to everything important.
+      </span>
     </div>
   );
 };

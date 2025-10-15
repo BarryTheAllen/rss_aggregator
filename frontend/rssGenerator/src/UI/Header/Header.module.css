@@ -8,3 +8,19 @@
     top: 0;
     z-index: 1000;
 }
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 18px;
+    color: #0e1011;
+    font-weight: 600;
+}
+
+.link {
+    color: #0e1011;
+    font-size: 18px;
+    font-weight: 600;
+}
