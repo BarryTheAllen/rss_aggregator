@@ -1,18 +1,23 @@
+import { useState } from "react";
+import { useCreateRegisterUser } from "@/shared/api/";
 import Input from "@/shared/UI/Input";
 import styles from "./Registration.module.css";
 import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
-import { useState } from "react";
 
 const Registration = () => {
   const [form, setForm] = useState({
-    identifier: "",
+    email: "",
+    login: "",
     password: ""
   });
   const [formError, setFormError] = useState({
-    identifierErr: "",
+    emailErr: "",
+    loginErr: "",
     passwordErr: ""
   });
+
+  const { mutate, isPending, error } = useCreateRegisterUser();
 
   const handleChangeInput = e => {
     const key = e.target.name;
@@ -29,10 +34,18 @@ const Registration = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (form.identifier.length < 3) {
+    if (form.email.includes("@") && form.password && form.login.length > 3) {
+      mutate({
+        username: form.login,
+        email: form.email,
+        password: form.password
+      });
+    }
+    if (form.login?.length < 3 && !form.email?.includes("@")) {
       setFormError(prev => ({
         ...prev,
-        identifierErr: "Логин не может быть меньше 3 символов"
+        loginErr: "Логин не может быть меньше 3 символов",
+        emailErr: "почта должна содержать @"
       }));
     }
     if (form.password.length < 6) {
@@ -48,13 +61,22 @@ const Registration = () => {
       <Logo />
       <h1 className={styles.formTitle}>Registration</h1>
       <Input
-        placeholder={"Логин или email"}
-        type={"text"}
-        name="identifier"
+        placeholder={"email"}
+        type={"email"}
+        name="email"
         onChange={handleChangeInput}
       />
-      {formError.identifierErr && (
-        <span className={styles.error}>{formError.identifierErr}</span>
+      {formError.emailErr && (
+        <span className={styles.error}>{formError.emailErr}</span>
+      )}
+      <Input
+        placeholder={"Логин"}
+        type={"text"}
+        name="login"
+        onChange={handleChangeInput}
+      />
+      {formError.loginErr && (
+        <span className={styles.error}>{formError.loginErr}</span>
       )}
       <Input
         placeholder={"Пароль"}
