@@ -1,7 +1,7 @@
-import Input from "@/UI/Input";
+import Input from "@/shared/UI/Input";
 import styles from "./Registration.module.css";
-import Button from "@/UI/Button";
-import Logo from "@/UI/Logo";
+import Button from "@/shared/UI/Button";
+import Logo from "@/shared/UI/Logo";
 import { useState } from "react";
 
 const Registration = () => {

@@ -1,4 +1,4 @@
-import Header from "@/UI/Header";
+import Header from "@/shared/UI/Header";
 import { Outlet } from "react-router";
 
 const Layout = () => {
