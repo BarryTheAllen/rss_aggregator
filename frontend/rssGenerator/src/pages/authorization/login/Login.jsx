@@ -3,6 +3,7 @@ import styles from "./Login.module.css";
 import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
 import { useState } from "react";
+import { useLoginUser } from "@/shared/api";
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -27,20 +28,14 @@ const Login = () => {
     }
   };
 
+  const { mutate, isPending, isError } = useLoginUser();
+
   const handleSubmit = e => {
     e.preventDefault();
-    if (form.identifier.length < 3) {
-      setFormError(prev => ({
-        ...prev,
-        identifierErr: "Логин не может быть меньше 3 символов"
-      }));
-    }
-    if (form.password.length < 6) {
-      setFormError(prev => ({
-        ...prev,
-        passwordErr: "Пароль не может быть меньше 6 символов"
-      }));
-    }
+    mutate({
+      identifier: form.identifier,
+      password: form.password
+    });
   };
 
   return (

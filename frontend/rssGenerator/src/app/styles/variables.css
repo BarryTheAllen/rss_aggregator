@@ -1,0 +1,27 @@
+:root {
+  /* цвета */
+  --primary-color: #2a539e;
+  --text-color: #0e1011;
+
+  /* шрифты */
+  --font-family: "Roboto";
+  --font-size-xs: 14px;
+  --font-size-md: 20px;
+  --font-size-xl: 24px;
+
+  /* отступы */
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+
+  /* радиусы */
+  --radius-s: 5px;
+  --radius-m: 10px;
+  --radius-l: 15px;
+
+  /* брейкпоинты */
+  --breakpoint-xs: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 968px;
+}

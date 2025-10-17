@@ -1,26 +1,57 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background: #2a539e;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    font-size: 18px;
-    color: #0e1011;
-    font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+  color: var(--text-color);
+  font-weight: 600;
 }
 
 .link {
-    color: #0e1011;
-    font-size: 18px;
-    font-weight: 600;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile {
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5px;
+  border-right: 1px solid var(--text-color);
+}
+
+.profilePicture {
+  width: 55px;
+  height: 55px;
+}
+
+.logoutBtn {
+  display: flex;
+  margin-left: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: start;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
 }

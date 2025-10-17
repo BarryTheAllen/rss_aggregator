@@ -1,13 +1,13 @@
 .input {
-    width: 250px;
-    height: 40px;
-    background: #d4d4d4;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid transparent;
-    transition:all .3s ease-in-out;
+  width: 250px;
+  height: 40px;
+  background: #d4d4d4;
+  border-radius: var(--radius-m);
+  padding: 10px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 .input:focus {
-    border: 1px solid #3b3b3b;
+  border: 1px solid #3b3b3b;
 }
