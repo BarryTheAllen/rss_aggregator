@@ -4,6 +4,8 @@ import Input from "@/shared/UI/Input";
 import styles from "./Registration.module.css";
 import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
+import Loading from "@/shared/UI/Loading";
+import Error from "@/shared/UI/Error";
 
 const Registration = () => {
   const [form, setForm] = useState({
@@ -17,7 +19,7 @@ const Registration = () => {
     passwordErr: ""
   });
 
-  const { mutate, isPending, error } = useCreateRegisterUser();
+  const { mutate, isLoading, isError, error } = useCreateRegisterUser();
 
   const handleChangeInput = e => {
     const key = e.target.name;
@@ -55,7 +57,18 @@ const Registration = () => {
       }));
     }
   };
+  if (isLoading) {
+    return <Loading />;
+  }
 
+  if (isError) {
+    return (
+      <Error
+        errorCode={error.response?.status}
+        errorText={"Ошибка регистрации попробуйте еще раз"}
+      />
+    );
+  }
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
       <Logo />

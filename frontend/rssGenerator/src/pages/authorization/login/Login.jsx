@@ -4,6 +4,8 @@ import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
 import { useState } from "react";
 import { useLoginUser } from "@/shared/api";
+import Error from "@/shared/UI/Error";
+import Loading from "@/shared/UI/Loading";
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -28,7 +30,7 @@ const Login = () => {
     }
   };
 
-  const { mutate, isPending, isError } = useLoginUser();
+  const { mutate, isError, error, isLoading } = useLoginUser();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -37,7 +39,18 @@ const Login = () => {
       password: form.password
     });
   };
+  if (isError) {
+    return (
+      <Error
+        errorCode={error.response?.status}
+        errorText={"Ошибка входа попробуйте еще раз"}
+      />
+    );
+  }
 
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
       <Logo />

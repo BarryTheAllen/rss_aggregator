@@ -1,0 +1,16 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+}
+
+.errorText {
+  font-size: 13px;
+  color: red;
+}

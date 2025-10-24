@@ -1,13 +1,23 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import styles from "./Header.module.css";
 import Logo from "../Logo";
-import { useLogoutUser, useProfileUser } from "@/shared/api";
+import { useLoginUser, useLogoutUser, useProfileUser } from "@/shared/api";
 import profilePic from "./assets/profilePic.png";
-import { useRef, useState } from "react";
 
 const Header = () => {
-  const { data } = useProfileUser();
+  const { data, isLoading, isError, error, isPending } = useProfileUser();
   const { mutate } = useLogoutUser();
+
+  if (isLoading) {
+    return (
+      <header className={styles.header}>
+        <Link to={"/Home"}>
+          <Logo />
+        </Link>
+        <p>Loading...</p>
+      </header>
+    );
+  }
   return (
     <header className={styles.header}>
       <Link to={"/Home"}>

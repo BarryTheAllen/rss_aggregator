@@ -1,4 +1,4 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { loginUser, logoutUser, registerUser, userProfile } from ".";
 import { useNavigate } from "react-router";
 import { queryClient } from "../client";
@@ -18,8 +18,8 @@ export const useLoginUser = () => {
   return useMutation({
     mutationFn: loginUser,
     onSuccess: async () => {
-      const profileData = await userProfile();
-      queryClient.setQueryData(["profile"], profileData);
+      const data = await userProfile();
+      queryClient.setQueriesData(["profile"], data);
       navigate("/Home");
     }
   });
