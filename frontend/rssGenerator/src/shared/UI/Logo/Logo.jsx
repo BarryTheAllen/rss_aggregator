@@ -6,7 +6,7 @@ const Logo = () => {
     <div className={styles.logo}>
       <div className={styles.block}>
         <img src={logo} alt="logo" className={styles.logoImg} />
-        <h1 className={styles.logoTitle}>Rss agregator</h1>
+        <h1 className={styles.logoTitle}>Rss aggregator</h1>
       </div>
       <span className={styles.logoDesc}>
         Instant access to everything important.

@@ -28,6 +28,7 @@ const Feed = () => {
       title: rssForm.title
     });
   };
+
   return (
     <div className={styles.feed}>
       <form className={styles.feedForm} onSubmit={handleSubmit}>
@@ -45,17 +46,15 @@ const Feed = () => {
         />
         <Button text={"Отправить"} />
       </form>
-      {data &&
-        data.map(el => (
-          <div key={el.id} className={styles.feedNews}>
-            {el.user_id}
-            {el.url}
-            {el.normalized_url}
-            {el.is_active}
-            {el.id}
-            {el.title}
-          </div>
-        ))}
+      <div className={styles.container}>
+        {data &&
+          data.map(el => (
+            <div key={el.id} className={styles.feedNews}>
+              <h2>Ссылка: {el.url}</h2>
+              <h3>Название: {el.title}</h3>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

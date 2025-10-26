@@ -1,7 +1,7 @@
 import { apiClient, queryClient } from "../client";
 
 export const addRssFeed = async feedData => {
-  const res = await apiClient.post("/feed/add", feedData);
+  const res = await apiClient.post("/feed/", feedData);
   return res.data;
 };
 

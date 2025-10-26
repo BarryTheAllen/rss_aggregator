@@ -8,10 +8,84 @@
 .feedForm {
   display: flex;
   margin: 20px;
-  position: absolute;
-  top: 20%;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   gap: 20px;
+}
+
+.asd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes mohovi {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.mohovi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: mohovi linear 3s infinite;
+}
+
+.chmo {
+  display: flex;
+}
+
+.mohovichmo {
+  color: red;
+  font-size: 20px;
+}
+
+.mohoviPetuhi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.feedNews {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-color);
+}
+
+.feedNews:hover {
+  color: red;
+  transform: scale(1.05);
+}
+@keyframes mohMamka {
+  from {
+    transform: translateY(60px);
+  }
+  to {
+    transform: translateY(-180px);
+  }
+}
+
+.piska {
+  width: 100px;
+  height: 100px;
+  animation: mohMamka linear 1s infinite;
+}
+
+.grobWrapper {
+  display: flex;
+}
+
+.grobik {
+  display: flex;
+  animation: mohovi linear 3s infinite;
 }
