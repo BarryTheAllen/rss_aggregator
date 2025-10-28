@@ -1,14 +1,26 @@
-import { useEffect } from "react";
 import styles from "./Home.module.css";
-import axios from "axios";
 import { Link } from "react-router";
 import Articles from "../Articles/";
+import { useGetArticles } from "@/shared/api/articles/hooks";
 
 const Home = () => {
+  const { data } = useGetArticles();
   return (
     <div className={styles.home}>
-      <Link to={"/Feed"}>Лента новостей</Link>
-      <Articles />
+      {data && (
+        <>
+          <Link to={"/Feed"}>Добавить ссылку</Link>
+          <Articles />
+        </>
+      )}
+      {!data && (
+        <>
+          <h1>Здесь будут ваши ленты</h1>
+          <Link to={"/Feed"} className={styles.link}>
+            Добавить ссылку →
+          </Link>
+        </>
+      )}
     </div>
   );
 };

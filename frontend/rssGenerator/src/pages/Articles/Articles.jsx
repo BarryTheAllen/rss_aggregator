@@ -4,6 +4,7 @@ import {
 } from "@/shared/api/articles/hooks";
 import styles from "./Articles.module.css";
 import Button from "@/shared/UI/Button";
+import { useState } from "react";
 
 const Articles = () => {
   const { data } = useGetArticles();

@@ -23,7 +23,7 @@ const Header = () => {
       <Link to={"/Home"}>
         <Logo />
       </Link>
-      {data ? (
+      {data && (
         <div className={styles.wrapper}>
           <div className={styles.profile}>
             <img
@@ -40,7 +40,8 @@ const Header = () => {
             Logout
           </p>
         </div>
-      ) : (
+      )}
+      {!data && (
         <nav className={styles.nav}>
           <Link to={"/Login"} className={styles.link}>
             Login

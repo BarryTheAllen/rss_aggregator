@@ -5,6 +5,7 @@
   padding: 20px;
   background: var(--primary-color);
   position: sticky;
+  font-family: var(--font-family);
   top: 0;
   z-index: 1000;
 }

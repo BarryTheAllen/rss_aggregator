@@ -2,6 +2,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { loginUser, logoutUser, registerUser, userProfile } from ".";
 import { useNavigate } from "react-router";
 import { queryClient } from "../client";
+import { getArticles } from "../articles/api";
 
 export const useCreateRegisterUser = () => {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ export const useLoginUser = () => {
   return useMutation({
     mutationFn: loginUser,
     onSuccess: async () => {
-      const data = await userProfile();
-      queryClient.setQueriesData(["profile"], data);
+      const profileData = await userProfile();
+      queryClient.setQueriesData(["profile"], profileData);
       navigate("/Home");
     }
   });

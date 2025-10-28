@@ -70,7 +70,7 @@ const Registration = () => {
     );
   }
   return (
-    <form className={styles.loginForm} onSubmit={handleSubmit}>
+    <form className={styles.registrationForm} onSubmit={handleSubmit}>
       <Logo />
       <h1 className={styles.formTitle}>Registration</h1>
       <Input
