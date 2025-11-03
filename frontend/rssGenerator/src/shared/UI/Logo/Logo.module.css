@@ -1,25 +1,89 @@
+@font-face {
+  font-family: "Bebas";
+  src: url("./assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .block {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-}
-
-.logoTitle {
-    font-size: 32px;
-}
-
-.logoDesc {
-    font-size: 14px;
+  display: flex;
+  align-items: end;
 }
 
 .logoImg {
-    max-width: 135px;
-    max-height: 50px;
+  max-width: 130px;
+  max-height: 40px;
+  margin-bottom: 5px;
+}
+
+.logoTitle {
+  color: #fff;
+  font-family: "Bebas", sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+.logoDesc {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 2px;
+  width: 100%;
+  max-width: min(400px, 90vw);
+}
+
+.logoDesc::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+@media (max-width: 758px) {
+  .logoTitle {
+    font-size: 30px;
+  }
+
+  .logoDesc {
+    font-size: 10px;
+  }
+
+  .logoImg {
+    max-width: 90px;
+    max-height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoTitle {
+    display: none;
+  }
+
+  .logoDesc {
+    display: none;
+  }
+
+  .logoImg {
+    max-width: 85px;
+    max-height: 30px;
+    align-self: end;
+  }
 }

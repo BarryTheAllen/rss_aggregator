@@ -14,25 +14,25 @@ export const useCreateRegisterUser = () => {
   });
 };
 
-export const useLoginUser = () => {
-  const navigate = useNavigate();
-  return useMutation({
-    mutationFn: loginUser,
-    onSuccess: async () => {
-      const profileData = await userProfile();
-      queryClient.setQueriesData(["profile"], profileData);
-      navigate("/Home");
-    }
-  });
-};
-
 export const useProfileUser = () => {
   return useQuery({
     queryKey: ["profile"],
     queryFn: userProfile,
     retry: false,
     refetchOnWindowFocus: false,
-    staleTime: Infinity
+    refetchOnReconnect: false
+  });
+};
+
+export const useLoginUser = () => {
+  const navigate = useNavigate();
+  return useMutation({
+    mutationFn: loginUser,
+    onSuccess: async () => {
+      queryClient.invalidateQueries({ queryKey: ["profile"] });
+      queryClient.invalidateQueries({ queryKey: ["articles"] });
+      navigate("/Home");
+    }
   });
 };
 

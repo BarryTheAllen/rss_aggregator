@@ -5,7 +5,7 @@ import { useLoginUser, useLogoutUser, useProfileUser } from "@/shared/api";
 import profilePic from "./assets/profilePic.png";
 
 const Header = () => {
-  const { data, isLoading, isError, error, isPending } = useProfileUser();
+  const { data, isLoading } = useProfileUser();
   const { mutate } = useLogoutUser();
 
   if (isLoading) {
@@ -14,7 +14,7 @@ const Header = () => {
         <Link to={"/Home"}>
           <Logo />
         </Link>
-        <p>Loading...</p>
+        <p className={styles.loading}>Loading...</p>
       </header>
     );
   }
@@ -46,7 +46,7 @@ const Header = () => {
           <Link to={"/Login"} className={styles.link}>
             Login
           </Link>
-          |
+          <hr />
           <Link to={"Registration"} className={styles.link}>
             Registration
           </Link>

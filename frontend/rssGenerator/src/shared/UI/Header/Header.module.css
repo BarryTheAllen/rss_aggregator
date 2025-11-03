@@ -3,11 +3,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: var(--primary-color);
+  background: var(--primary-secondary);
   position: sticky;
   font-family: var(--font-family);
   top: 0;
   z-index: 1000;
+  box-shadow: 0 20px 16px rgba(133, 132, 132, 0.15);
 }
 
 .wrapper {
@@ -28,10 +29,19 @@
 
 .link {
   color: var(--text-color);
-  font-size: 18px;
-  font-weight: 600;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
 }
 
+hr {
+  height: 25px;
+}
+
+.link:hover {
+  border-bottom-color: var(--text-color);
+}
 .profile {
   display: flex;
   font-size: 14px;
@@ -46,6 +56,10 @@
   height: 55px;
 }
 
+.profileName {
+  color: var(--text-color);
+}
+
 .logoutBtn {
   display: flex;
   margin-left: 5px;
@@ -54,5 +68,9 @@
   align-self: start;
   justify-content: center;
   align-items: center;
+  color: var(--text-color);
+}
+
+.loading {
   color: var(--text-color);
 }

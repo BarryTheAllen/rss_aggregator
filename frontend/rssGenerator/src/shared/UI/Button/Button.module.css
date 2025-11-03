@@ -1,21 +1,21 @@
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 12px 32px;
+  border: 2px solid var(--primary-color);
+  border-radius: 30px;
   background: var(--primary-color);
-  border-radius: 10px;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  width: 250px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+  display: inline-block;
+  font-family: inherit;
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
 }
 
 .button:hover {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(2px);
-  color: #bbb9b9;
-  background: #0f3172;
+  background: var(--hover-color);
+  color: var(--text-secondary);
+  cursor: pointer;
 }

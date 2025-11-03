@@ -6,6 +6,7 @@ import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
 import Loading from "@/shared/UI/Loading";
 import Error from "@/shared/UI/Error";
+import { Link } from "react-router";
 
 const Registration = () => {
   const [form, setForm] = useState({
@@ -100,7 +101,13 @@ const Registration = () => {
       {formError.passwordErr && (
         <span className={styles.error}>{formError.passwordErr}</span>
       )}
-      <Button text={"Войти"} type="submit" />
+      <span className={styles.redirect}>
+        Have an account?{" "}
+        <Link className={styles.redirectLink} to={"/Login"}>
+          Login
+        </Link>
+      </span>
+      <Button text={"Registration"} type="submit" />
     </form>
   );
 };

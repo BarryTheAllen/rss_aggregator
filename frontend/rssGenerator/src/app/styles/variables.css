@@ -1,27 +1,37 @@
 :root {
-  /* цвета */
-  --primary-color: #2765b6;
-  --text-color: #0e1011;
-  --white-color: #fff;
+  /* Цвета */
+  --primary-color: #2d2e2f;
+  --primary-secondary: #1e1e1f;
+  --primary-hover: #737475;
+  --hover-color: #454546;
+  --text-color: #f1f1f1;
+  --text-secondary: #d3d3d4;
+  --white-color: #ffffff;
+  --bg-color: #ffffff;
+  --bg-secondary: #f6f7f8;
+  --border-color: #e0e0e0;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
 
-  /* шрифты */
-  --font-family: "Roboto";
+  /* Шрифты */
+  --font-family: "Roboto", system-ui, sans-serif;
   --font-size-xs: 14px;
   --font-size-md: 20px;
   --font-size-xl: 24px;
 
-  /* отступы */
+  /* Отступы */
   --space-xs: 4px;
   --space-s: 8px;
   --space-m: 16px;
   --space-l: 24px;
 
-  /* радиусы */
+  /* Радиусы */
   --radius-s: 5px;
   --radius-m: 10px;
   --radius-l: 15px;
 
-  /* брейкпоинты */
+  /* Брейкпоинты */
   --breakpoint-xs: 480px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 968px;

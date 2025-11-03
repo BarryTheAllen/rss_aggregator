@@ -20,5 +20,5 @@
 }
 
 .formTitle {
-  color: #353333;
+  color: var(--text-color);
 }

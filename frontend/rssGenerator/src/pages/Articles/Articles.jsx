@@ -7,8 +7,7 @@ import Button from "@/shared/UI/Button";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
 
-const Articles = () => {
-  const { data } = useGetArticles();
+const Articles = ({ data }) => {
   const { mutate } = useRefreshArticles();
 
   return (

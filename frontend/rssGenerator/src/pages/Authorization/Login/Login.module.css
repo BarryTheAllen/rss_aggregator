@@ -11,7 +11,7 @@
   gap: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  background: var(--primary-colors);
+  background: var(--primary-color);
 }
 
 .error {
@@ -21,7 +21,5 @@
 }
 
 .formTitle {
-  color: #353333;
-  text-align: center;
-  font-size: min(6vw, 24px);
+  color: var(--text-color);
 }
