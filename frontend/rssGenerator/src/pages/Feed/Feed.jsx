@@ -1,4 +1,4 @@
-import { useGetRssFeed, useAddRssFeed } from "@/shared/api/feed/hooks";
+import { useGetRssFeed, useAddRssFeed } from "@/entities/api/feed/hooks";
 import styles from "./Feed.module.css";
 import { useState } from "react";
 import Input from "@/shared/UI/Input";

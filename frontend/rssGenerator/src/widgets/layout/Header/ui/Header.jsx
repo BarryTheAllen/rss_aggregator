@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import styles from "./Header.module.css";
-import Logo from "../Logo";
-import { useLoginUser, useLogoutUser, useProfileUser } from "@/shared/api";
-import profilePic from "./assets/profilePic.png";
+import Logo from "@/shared/UI/Logo";
+import { useLogoutUser, useProfileUser } from "@/entities/api";
+import profilePic from "../assets/profilePic.png";
 
 const Header = () => {
   const { data, isLoading } = useProfileUser();
@@ -45,10 +45,6 @@ const Header = () => {
         <nav className={styles.nav}>
           <Link to={"/Login"} className={styles.link}>
             Login
-          </Link>
-          <hr />
-          <Link to={"Registration"} className={styles.link}>
-            Registration
           </Link>
         </nav>
       )}

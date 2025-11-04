@@ -22,3 +22,7 @@
 .formTitle {
   color: var(--text-color);
 }
+
+.redirectLink {
+  color: var(--text-color);
+}

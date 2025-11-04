@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getArticles, refreshArticles } from "./api";
+import { getArticles, getArticlesByTag, refreshArticles } from "./api";
 import { queryClient } from "../client";
 import { useLoginUser, useProfileUser } from "../auth";
 
@@ -18,5 +18,18 @@ export const useRefreshArticles = () => {
     onSuccess: data => {
       queryClient.invalidateQueries({ queryKey: ["articles"] });
     }
+  });
+};
+
+export const useGetArticlesByTag = tag => {
+  return useQuery({
+    queryKey: ["articles", "by-tag", tag],
+    queryFn: async () => {
+      if (!tag) {
+        throw new Error("Tag is required");
+      }
+      return await getArticlesByTag(tag);
+    },
+    enabled: Boolean(tag)
   });
 };

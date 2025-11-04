@@ -1,8 +1,8 @@
 import styles from "./Home.module.css";
 import { Link } from "react-router";
-import Articles from "../Articles/";
-import { useGetArticles } from "@/shared/api/articles/hooks";
-import { useProfileUser } from "@/shared/api";
+import Articles from "@/features/Articles";
+import { useGetArticles } from "@/entities/api/articles/hooks";
+import { useProfileUser } from "@/entities/api";
 import Button from "@/shared/UI/Button";
 
 const Home = () => {

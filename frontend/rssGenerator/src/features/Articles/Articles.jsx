@@ -1,7 +1,4 @@
-import {
-  useGetArticles,
-  useRefreshArticles
-} from "@/shared/api/articles/hooks";
+import { useRefreshArticles } from "@/entities/api/articles/hooks";
 import styles from "./Articles.module.css";
 import Button from "@/shared/UI/Button";
 import parse from "html-react-parser";

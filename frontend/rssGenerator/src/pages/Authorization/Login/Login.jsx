@@ -3,7 +3,7 @@ import styles from "./Login.module.css";
 import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
 import { useState } from "react";
-import { useLoginUser } from "@/shared/api";
+import { useLoginUser } from "@/entities/api";
 import Error from "@/shared/UI/Error";
 import Loading from "@/shared/UI/Loading";
 import { Link } from "react-router";
@@ -74,12 +74,9 @@ const Login = () => {
       {formError.passwordErr && (
         <span className={styles.error}>{formError.passwordErr}</span>
       )}
-      <span className={styles.redirect}>
-        Dont have an account?{" "}
-        <Link className={styles.redirectLink} to={"/Login"}>
-          Registration.
-        </Link>
-      </span>
+      <Link className={styles.redirectLink} to={"/Registration"}>
+        Dont have an account? Registration.
+      </Link>
       <Button text={"Login"} type="submit" />
     </form>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCreateRegisterUser } from "@/shared/api/";
+import { useCreateRegisterUser } from "@/entities/api/";
 import Input from "@/shared/UI/Input";
 import styles from "./Registration.module.css";
 import Button from "@/shared/UI/Button";
@@ -101,12 +101,9 @@ const Registration = () => {
       {formError.passwordErr && (
         <span className={styles.error}>{formError.passwordErr}</span>
       )}
-      <span className={styles.redirect}>
-        Have an account?{" "}
-        <Link className={styles.redirectLink} to={"/Login"}>
-          Login
-        </Link>
-      </span>
+      <Link className={styles.redirectLink} to={"/Login"}>
+        Have an account? Login
+      </Link>
       <Button text={"Registration"} type="submit" />
     </form>
   );
