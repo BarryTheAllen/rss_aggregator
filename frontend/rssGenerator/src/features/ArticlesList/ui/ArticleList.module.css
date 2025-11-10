@@ -1,21 +1,20 @@
-.layout {
+.articles {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
+  overflow-y: auto;
+  gap: var(--space-l);
+  max-width: var(--breakpoint-lg);
   margin: 0 auto;
-  height: auto;
-  margin-top: 5vh;
-  max-width: 1280px;
   width: 100%;
   padding: 0 var(--space-s);
   box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
-  .layout {
-    flex-direction: column;
-    align-items: center;
+  .articles {
+    padding: 0;
     gap: var(--space-l);
-    padding: 0 var(--space-xs);
   }
 }

@@ -9,6 +9,13 @@ import Error from "@/shared/UI/Error";
 import { Link } from "react-router";
 
 const Registration = () => {
+  const {
+    mutate: register,
+    isLoading,
+    isError,
+    error
+  } = useCreateRegisterUser();
+
   const [form, setForm] = useState({
     email: "",
     login: "",
@@ -20,25 +27,23 @@ const Registration = () => {
     passwordErr: ""
   });
 
-  const { mutate, isLoading, isError, error } = useCreateRegisterUser();
-
   const handleChangeInput = e => {
-    const key = e.target.name;
-    const newValue = e.target.value;
+    const { name, value } = e.target;
     setForm(prev => ({
       ...prev,
-      [key]: newValue
+      [name]: value
     }));
 
-    if (formError[key + "Err"]) {
-      setFormError(prev => ({ ...prev, [key + "Err"]: "" }));
+    const errorKey = name + "Err";
+    if (formError[name + "Err"]) {
+      setFormError(prev => ({ ...prev, [errorKey]: "" }));
     }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     if (form.email.includes("@") && form.password && form.login.length > 3) {
-      mutate({
+      register({
         username: form.login,
         email: form.email,
         password: form.password

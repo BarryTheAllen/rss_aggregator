@@ -2,11 +2,16 @@ import { Link } from "react-router";
 import styles from "./Header.module.css";
 import Logo from "@/shared/UI/Logo";
 import { useLogoutUser, useProfileUser } from "@/entities/api";
-import profilePic from "../assets/profilePic.png";
+import logoutpic from "../assets/logout.png";
+import BurgerMenu from "@/shared/UI/BurgerMenu";
 
 const Header = () => {
-  const { data, isLoading } = useProfileUser();
-  const { mutate } = useLogoutUser();
+  const { data, isLoading, isError, error } = useProfileUser();
+  const { mutate: logout } = useLogoutUser();
+
+  if (isError && error?.response?.status !== 401) {
+    <Error />;
+  }
 
   if (isLoading) {
     return (
@@ -20,25 +25,28 @@ const Header = () => {
   }
   return (
     <header className={styles.header}>
-      <Link to={"/Home"}>
-        <Logo />
-      </Link>
+      <div className={styles.block}>
+        <Link to={"/Home"}>
+          <Logo />
+        </Link>
+        <BurgerMenu />
+      </div>
       {data && (
         <div className={styles.wrapper}>
           <div className={styles.profile}>
-            <img
-              src={profilePic}
-              alt="profilePic"
-              className={styles.profilePicture}
-            />
+            <p className={styles.avatar}>{data.username.slice(0, 1)}</p>
             <div className={styles.profileName}>
-              <h3>{data.email}</h3>
-              <h4>{data.username}</h4>
+              <h3>{data.username}</h3>
+              <div className={styles.logoutBtn} onClick={logout}>
+                <p className={styles.logoutText}>Logout</p>
+                <img
+                  className={styles.logoutImg}
+                  src={logoutpic}
+                  alt="logout"
+                />
+              </div>
             </div>
           </div>
-          <p className={styles.logoutBtn} onClick={mutate}>
-            Logout
-          </p>
         </div>
       )}
       {!data && (

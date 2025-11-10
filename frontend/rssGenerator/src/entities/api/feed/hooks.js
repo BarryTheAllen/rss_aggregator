@@ -12,8 +12,11 @@ export const useGetRssFeed = () => {
 export const useAddRssFeed = () => {
   return useMutation({
     mutationFn: addRssFeed,
-    onSuccess: async () => {
-      const data = await addRssFeed();
+    onMutate: async newFeed => {
+      const oldFeed = queryClient.getQueryData(["getRss"]) || [];
+      queryClient.setQueryData(["getRss"], [...oldFeed, newFeed]);
+    },
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["getRss"] });
     }
   });

@@ -5,7 +5,7 @@ export const addRssFeed = async feedData => {
   return res.data;
 };
 
-export const getRssFeed = async () => {
+export const getRssFeed = async newFeed => {
   const res = await apiClient.get("/feed/all");
   return res.data;
 };

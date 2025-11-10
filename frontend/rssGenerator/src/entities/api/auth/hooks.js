@@ -2,7 +2,6 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { loginUser, logoutUser, registerUser, userProfile } from ".";
 import { useNavigate } from "react-router";
 import { queryClient } from "../client";
-import { getArticles } from "../articles/api";
 
 export const useCreateRegisterUser = () => {
   const navigate = useNavigate();
@@ -17,10 +16,25 @@ export const useCreateRegisterUser = () => {
 export const useProfileUser = () => {
   return useQuery({
     queryKey: ["profile"],
-    queryFn: userProfile,
+    queryFn: async () => {
+      try {
+        const res = await userProfile();
+        return res;
+      } catch (error) {
+        throw error;
+      }
+    },
     retry: false,
+    staleTime: Infinity,
     refetchOnWindowFocus: false,
-    refetchOnReconnect: false
+    throwOnError: false,
+    refetchOnReconnect: false,
+    onError: error => {
+      console.log("error");
+      if (error.response?.status === 401) {
+        queryClient.removeQueries({ queryKey: ["profile"] });
+      }
+    }
   });
 };
 
@@ -31,7 +45,6 @@ export const useLoginUser = () => {
     onSuccess: async () => {
       queryClient.invalidateQueries({ queryKey: ["profile"] });
       queryClient.invalidateQueries({ queryKey: ["articles"] });
-      navigate("/Home");
     }
   });
 };

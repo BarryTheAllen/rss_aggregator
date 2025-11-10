@@ -1,0 +1,60 @@
+.feedControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 20%;
+  position: sticky;
+  top: 15%;
+  padding: var(--space-l);
+  box-sizing: border-box;
+  background: var(--primary-secondary);
+  border-radius: var(--radius-l);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.feedForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tagList {
+  margin-top: 20px;
+}
+
+.feedTags {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aviavableTags {
+  color: var(--text-color);
+  font-size: var(--font-size-md);
+}
+
+.addFeedTitle {
+  color: var(--text-color);
+  font-size: var(--font-size-md);
+}
+
+.option {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: var(--font-size-xs);
+  background: var(--white-color);
+  border-radius: 20px;
+  transition: all 0.15s ease-in-out;
+}
+
+.option:hover {
+  color: var(--text-color);
+  background: var(--hover-color);
+}

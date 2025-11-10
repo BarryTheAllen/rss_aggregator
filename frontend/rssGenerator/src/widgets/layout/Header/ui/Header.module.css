@@ -2,13 +2,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: var(--space-l);
+  height: 95px;
   background: var(--primary-secondary);
   position: sticky;
   font-family: var(--font-family);
   top: 0;
   z-index: 1000;
   box-shadow: 0 20px 16px rgba(133, 132, 132, 0.15);
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: var(--font-size-xl);
+  margin-right: var(--space-m);
+  border: 1px solid var(--white-color);
+  background: #494949;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .wrapper {
@@ -35,10 +58,6 @@
   transition: border-color 0.2s ease;
 }
 
-hr {
-  height: 25px;
-}
-
 .link:hover {
   border-bottom-color: var(--text-color);
 }
@@ -48,12 +67,11 @@ hr {
   justify-content: center;
   align-items: center;
   padding-right: 5px;
-  border-right: 1px solid var(--text-color);
 }
 
 .profilePicture {
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
 }
 
 .profileName {
@@ -62,15 +80,29 @@ hr {
 
 .logoutBtn {
   display: flex;
-  margin-left: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  align-self: start;
   justify-content: center;
   align-items: center;
-  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.logoutBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
+.logoutText {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.logoutImg {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
 .loading {
   color: var(--text-color);
 }

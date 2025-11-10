@@ -1,0 +1,47 @@
+.burgerMenu {
+  cursor: pointer;
+}
+
+.bar {
+  display: flex;
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+  background: var(--white-color);
+  transition: 0.3s;
+  position: relative;
+}
+
+.bar::before,
+.bar::after {
+  content: "";
+  display: flex;
+  width: 30px;
+  height: 2px;
+  background: var(--white-color);
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+}
+
+.bar::before {
+  top: -8px;
+}
+
+.bar::after {
+  bottom: -8px;
+}
+
+.barActive {
+  background: transparent;
+}
+
+.barActive::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.barActive::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}

@@ -6,7 +6,7 @@ import { useLoginUser, useProfileUser } from "../auth";
 export const useGetArticles = enabled => {
   return useQuery({
     queryKey: ["articles"],
-    enabled: enabled,
+    enabled,
     queryFn: getArticles,
     retry: false
   });
@@ -25,9 +25,7 @@ export const useGetArticlesByTag = tag => {
   return useQuery({
     queryKey: ["articles", "by-tag", tag],
     queryFn: async () => {
-      if (!tag) {
-        throw new Error("Tag is required");
-      }
+      if (!tag) throw new Error("test");
       return await getArticlesByTag(tag);
     },
     enabled: Boolean(tag)

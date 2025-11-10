@@ -1,17 +1,16 @@
 .button {
-  color: var(--text-color);
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 600;
   font-size: 18px;
-  padding: 12px 32px;
-  border: 2px solid var(--primary-color);
-  border-radius: 30px;
-  background: var(--primary-color);
+  padding: 15px;
+  border-radius: 25px;
+  background: var(--white-color);
   transition: all 0.3s ease;
   margin-top: 16px;
-  display: inline-block;
-  font-family: inherit;
-  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover {

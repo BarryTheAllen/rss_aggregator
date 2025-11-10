@@ -9,6 +9,8 @@ import Loading from "@/shared/UI/Loading";
 import { Link } from "react-router";
 
 const Login = () => {
+  const { mutate: login, isError, error, isLoading } = useLoginUser();
+
   const [form, setForm] = useState({
     identifier: "",
     password: ""
@@ -19,23 +21,21 @@ const Login = () => {
   });
 
   const handleChangeInput = e => {
-    const key = e.target.name;
-    const newValue = e.target.value;
+    const { name, value } = e.target;
     setForm(prev => ({
       ...prev,
-      [key]: newValue
+      [name]: value
     }));
 
-    if (formError[key + "Err"]) {
-      setFormError(prev => ({ ...prev, [key + "Err"]: "" }));
+    const errorKey = name + "Err";
+    if (formError[name + "Err"]) {
+      setFormError(prev => ({ ...prev, [errorKey]: "" }));
     }
   };
 
-  const { mutate, isError, error, isLoading } = useLoginUser();
-
   const handleSubmit = e => {
     e.preventDefault();
-    mutate({
+    login({
       identifier: form.identifier,
       password: form.password
     });

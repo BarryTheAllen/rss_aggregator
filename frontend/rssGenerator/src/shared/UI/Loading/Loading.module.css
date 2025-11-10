@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   position: absolute;
-  background: var(--white-color);
+  background: var(--primary-color);
   padding: 20px;
   width: 200px;
   height: 200px;
@@ -15,7 +15,7 @@
 
 .loadingTitle {
   font-size: var(--font-size-xl);
-  color: var(--primary-color);
+  color: var(--text-color);
 }
 
 @keyframes loading {
