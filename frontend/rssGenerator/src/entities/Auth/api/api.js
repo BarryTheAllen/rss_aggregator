@@ -1,4 +1,4 @@
-import { apiClient } from "../client";
+import { apiClient } from "@/shared/api/client";
 
 export const registerUser = async regData => {
   const res = await apiClient.post("/auth/register", regData);

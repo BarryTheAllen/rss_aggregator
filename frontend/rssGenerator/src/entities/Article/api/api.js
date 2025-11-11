@@ -1,4 +1,4 @@
-import { apiClient } from "../client";
+import { apiClient } from "@/shared/api/client";
 
 export const getArticles = async () => {
   const res = await apiClient.get("/article");

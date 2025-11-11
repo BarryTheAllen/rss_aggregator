@@ -1,9 +1,9 @@
-import { useAddRssFeed } from "@/entities/api/feed/hooks";
+import { useAddRssFeed } from "../api/hooks";
+import { useRefreshArticles } from "@/entities/Article";
 import { useState } from "react";
 import styles from "./FeedControls.module.css";
 import Input from "@/shared/UI/Input";
 import Button from "@/shared/UI/Button";
-import { useRefreshArticles } from "@/entities/api";
 
 const AddRssURL = () => {
   const { mutate: refresh } = useRefreshArticles();
@@ -11,19 +11,18 @@ const AddRssURL = () => {
     url: "",
     title: ""
   });
-  const { mutate } = useAddRssFeed();
+  const { mutate: addFeed } = useAddRssFeed();
 
   const handleChangeInput = e => {
-    const key = e.target.name;
-    const newValue = e.target.value;
+    const { name, value } = e.target;
     setRssForm(prev => ({
       ...prev,
-      [key]: newValue
+      [name]: value
     }));
   };
   const handleSubmit = e => {
     e.preventDefault();
-    return mutate({
+    addFeed({
       url: rssForm.url,
       title: rssForm.title
     });
@@ -31,7 +30,7 @@ const AddRssURL = () => {
 
   return (
     <form className={styles.feedForm} onSubmit={handleSubmit}>
-      <Button text={"Refresh the feed"} type={"button"} onClick={mutate} />
+      <Button text={"Refresh the feed"} type={"button"} onClick={refresh} />
       <p className={styles.addFeedTitle}>Add feed</p>
       <Input
         placeholder={"Enter rss url"}

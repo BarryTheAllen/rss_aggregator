@@ -1,9 +1,9 @@
 import Input from "@/shared/UI/Input";
-import styles from "./Login.module.css";
+import styles from "./Auth.module.css";
 import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
 import { useState } from "react";
-import { useLoginUser } from "@/entities/api";
+import { useLoginUser } from "@/entities/Auth/api/hooks";
 import Error from "@/shared/UI/Error";
 import Loading from "@/shared/UI/Loading";
 import { Link } from "react-router";

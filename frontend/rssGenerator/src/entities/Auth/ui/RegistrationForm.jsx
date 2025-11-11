@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useCreateRegisterUser } from "@/entities/api/";
+import { useCreateRegisterUser } from "@/entities/Auth/api/hooks";
 import Input from "@/shared/UI/Input";
-import styles from "./Registration.module.css";
+import styles from "./Auth.module.css";
 import Button from "@/shared/UI/Button";
 import Logo from "@/shared/UI/Logo";
 import Loading from "@/shared/UI/Loading";

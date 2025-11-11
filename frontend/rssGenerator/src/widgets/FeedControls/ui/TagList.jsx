@@ -1,8 +1,7 @@
 import styles from "./FeedControls.module.css";
 import { useNavigate } from "react-router";
-import { useGetArticles } from "@/entities/api";
+import { useGetArticles } from "@/entities/Article/api/hooks";
 import { useEffect, useState } from "react";
-import Button from "@/shared/UI/Button";
 
 const TagList = () => {
   const { data: articles } = useGetArticles();

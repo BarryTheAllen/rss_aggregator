@@ -1,13 +1,11 @@
 import {
   useGetArticles,
-  useGetArticlesByTag,
-  useRefreshArticles
-} from "@/entities/api";
-import styles from "./ArticleList.module.css";
-import ArticleCard from "@/entities/Article";
+  useGetArticlesByTag
+} from "@/entities/Article/api/hooks";
+import styles from "./Article.module.css";
+import ArticleCard from "@/entities/Article/ui/ArticleCard";
 import parse from "html-react-parser";
 import DOMPurify from "dompurify";
-import Button from "@/shared/UI/Button";
 import { useLocation } from "react-router";
 
 const ArticleList = () => {

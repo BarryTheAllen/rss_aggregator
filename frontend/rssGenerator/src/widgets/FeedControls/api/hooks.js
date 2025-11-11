@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { addRssFeed, getRssFeed } from "./api";
-import { queryClient } from "../client";
+import { queryClient } from "@/shared/api/client";
 
 export const useGetRssFeed = () => {
   return useQuery({

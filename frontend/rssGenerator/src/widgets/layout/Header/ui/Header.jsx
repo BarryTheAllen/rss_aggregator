@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import styles from "./Header.module.css";
 import Logo from "@/shared/UI/Logo";
-import { useLogoutUser, useProfileUser } from "@/entities/api";
+import { useLogoutUser, useProfileUser } from "@/entities/Auth/api/hooks";
 import logoutpic from "../assets/logout.png";
 import BurgerMenu from "@/shared/UI/BurgerMenu";
 

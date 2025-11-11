@@ -1,13 +1,13 @@
 import { Navigate, Route, Routes } from "react-router";
 import Layout from "./Layout";
-import Registration from "@/pages/Authorization/Registration";
-import Login from "@/pages/Authorization/Login";
+import RegistrationForm from "@/entities/Auth/ui/RegistrationForm";
+import LoginForm from "@/entities/Auth/ui/LoginForm";
 import Profile from "@/pages/Profile";
 import Home from "@/pages/Home";
 import Feed from "@/pages/Feed";
 import RedirectIfAuthenticated from "@/shared/lib/RedirectIfAuthenticated";
 import ProtectedRoute from "@/shared/lib/ProtectedRoute";
-import ArticleList from "@/features/ArticlesList/ui/ArticleList";
+import ArticleList from "@/entities/Article/ui/ArticleList";
 
 const Routing = () => {
   return (
@@ -16,8 +16,8 @@ const Routing = () => {
         <Route index element={<Navigate to="/Home" replace />} />
         <Route element={<RedirectIfAuthenticated />}>
           <Route path="/Home" element={<Home />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Registration" element={<Registration />} />
+          <Route path="/Login" element={<LoginForm />} />
+          <Route path="/Registration" element={<RegistrationForm />} />
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/Feed" element={<Feed />} />

@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router";
-import { useProfileUser } from "@/entities/api";
+import { useProfileUser } from "@/entities/Auth/api/hooks";
 
 const ProtectedRoute = ({ redirectPath = "/Login" }) => {
   const { data: user, isLoading, isError } = useProfileUser();

@@ -1,7 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { getArticles, getArticlesByTag, refreshArticles } from "./api";
-import { queryClient } from "../client";
-import { useLoginUser, useProfileUser } from "../auth";
+import { queryClient } from "@/shared/api/client";
 
 export const useGetArticles = enabled => {
   return useQuery({

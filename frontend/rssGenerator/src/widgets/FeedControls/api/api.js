@@ -1,4 +1,4 @@
-import { apiClient, queryClient } from "../client";
+import { apiClient, queryClient } from "@/shared/api/client";
 
 export const addRssFeed = async feedData => {
   const res = await apiClient.post("/feed/", feedData);

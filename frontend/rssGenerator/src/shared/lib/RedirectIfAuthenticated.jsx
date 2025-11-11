@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router";
-import { useProfileUser } from "@/entities/api";
+import { useProfileUser } from "@/entities/Auth/api/hooks";
 
 const RedirectIfAuthenticated = ({ redirectPath = "/Feed" }) => {
   const { data: user, isLoading, isError } = useProfileUser();
