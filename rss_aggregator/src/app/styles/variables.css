@@ -15,23 +15,27 @@
   --error-color: #f44336;
 
   /* Шрифты */
-  --font-family: "Roboto", system-ui, sans-serif;
+  --font-family: "Roboto";
   --font-size-xs: 14px;
   --font-size-md: 20px;
   --font-size-xl: 24px;
+  --font-size-xxl: 32px;
 
   /* Отступы */
   --space-xs: 4px;
   --space-s: 8px;
   --space-m: 16px;
   --space-l: 24px;
+  --space-xl: 32px;
 
   /* Радиусы */
   --radius-s: 5px;
   --radius-m: 10px;
   --radius-l: 15px;
+  --radius-xl: 20px;
 
   /* Брейкпоинты */
+  --breakpoint-xxs: 368px;
   --breakpoint-xs: 480px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 968px;
