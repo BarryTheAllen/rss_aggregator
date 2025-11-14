@@ -1,6 +1,8 @@
 import { useAddRssFeed } from "../api/hooks";
 import { useRefreshArticles } from "@/entities/Article";
+import { GoPlus } from "react-icons/go";
 import { useState } from "react";
+import { IoReloadOutline } from "react-icons/io5";
 import styles from "./FeedControls.module.css";
 import Input from "@/shared/UI/Input";
 import Button from "@/shared/UI/Button";
@@ -26,11 +28,14 @@ const AddRssURL = () => {
       url: rssForm.url,
       title: rssForm.title
     });
+    setRssForm({ url: "", title: "" });
   };
 
   return (
     <form className={styles.feedForm} onSubmit={handleSubmit}>
-      <Button text={"Refresh the feed"} type={"button"} onClick={refresh} />
+      <button type="button" onClick={refresh} className={styles.refreshBtn}>
+        <IoReloadOutline className={styles.refreshIcon} /> refresh the feed
+      </button>
       <p className={styles.addFeedTitle}>Add feed</p>
       <Input
         placeholder={"Enter rss url"}
@@ -44,7 +49,9 @@ const AddRssURL = () => {
         name="title"
         onChange={handleChangeInput}
       />
-      <Button text={"Add"} type={"submit"} />
+      <button type="submit" className={styles.addRssBtn}>
+        <GoPlus className={styles.plusIcon} /> add rss
+      </button>
     </form>
   );
 };

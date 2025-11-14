@@ -25,12 +25,8 @@ const TagList = () => {
       <ul className={styles.feedTags}>
         {tags.map(tag => (
           <li key={tag}>
-            <button
-              className={styles.option}
-              text={tag}
-              onClick={() => tagFilter(tag)}
-            >
-              {tag}
+            <button className={styles.option} onClick={() => tagFilter(tag)}>
+              #{tag}
             </button>
           </li>
         ))}

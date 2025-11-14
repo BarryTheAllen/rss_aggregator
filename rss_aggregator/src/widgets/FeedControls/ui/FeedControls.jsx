@@ -1,28 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { RxCross1 } from "react-icons/rx";
+import { GiHamburgerMenu } from "react-icons/gi";
 import AddRssURL from "./AddRssURL";
 import styles from "./FeedControls.module.css";
 import TagList from "./TagList";
 const FeedControls = () => {
-  const [isMobileState, setIsMobileState] = useState(false);
-  useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    setIsMobileState(isMobile);
-  }, []);
+  const [isMobile, setIsMobile] = useState(false);
 
   return (
     <aside className={styles.feedControls}>
-      {isMobileState ? (
-        <>
-          <div>asdasdasdasdas</div>
-          <AddRssURL />
-          <TagList />
-        </>
-      ) : (
-        <>
-          <AddRssURL />
-          <TagList />
-        </>
-      )}
+      <button
+        className={styles.mobileToggle}
+        onClick={() => setIsMobile(!isMobile)}
+      >
+        {isMobile ? <RxCross1 /> : <GiHamburgerMenu />}
+      </button>
+      <div
+        className={`${styles.container} ${isMobile ? styles.mobileOpen : ""}`}
+      >
+        <AddRssURL />
+        <TagList />
+      </div>
     </aside>
   );
 };

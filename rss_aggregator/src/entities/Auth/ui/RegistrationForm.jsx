@@ -76,7 +76,7 @@ const Registration = () => {
     );
   }
   return (
-    <form className={styles.registrationForm} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <Logo />
       <h1 className={styles.formTitle}>Registration</h1>
       <Input

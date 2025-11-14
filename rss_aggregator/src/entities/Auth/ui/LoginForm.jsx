@@ -53,7 +53,7 @@ const Login = () => {
     return <Loading />;
   }
   return (
-    <form className={styles.loginForm} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <Logo />
       <h1 className={styles.formTitle}>Login</h1>
       <Input

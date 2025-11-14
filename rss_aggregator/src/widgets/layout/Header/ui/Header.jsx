@@ -6,7 +6,7 @@ import logoutpic from "../assets/logout.png";
 import BurgerMenu from "@/shared/UI/BurgerMenu";
 
 const Header = () => {
-  const { data, isLoading, isError, error } = useProfileUser();
+  const { data: user, isLoading, isError, error } = useProfileUser();
   const { mutate: logout } = useLogoutUser();
 
   if (isError && error?.response?.status !== 401) {
@@ -31,12 +31,12 @@ const Header = () => {
         </Link>
         <BurgerMenu />
       </div>
-      {data && (
+      {user && (
         <div className={styles.wrapper}>
           <div className={styles.profile}>
-            <p className={styles.avatar}>{data.username.slice(0, 1)}</p>
+            <p className={styles.avatar}>{user.username.slice(0, 1)}</p>
             <div className={styles.profileName}>
-              <h3>{data.username}</h3>
+              <h3>{user.username}</h3>
               <div className={styles.logoutBtn} onClick={logout}>
                 <p className={styles.logoutText}>Logout</p>
                 <img
@@ -49,7 +49,7 @@ const Header = () => {
           </div>
         </div>
       )}
-      {!data && (
+      {!user && (
         <nav className={styles.nav}>
           <Link to={"/Login"} className={styles.link}>
             Login

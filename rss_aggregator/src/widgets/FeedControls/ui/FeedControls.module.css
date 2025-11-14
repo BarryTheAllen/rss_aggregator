@@ -1,10 +1,7 @@
 .feedControls {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  margin: 0 auto;
-  width: 20%;
+  width: 250px;
   position: sticky;
   top: 15%;
   padding: var(--space-l);
@@ -12,49 +9,139 @@
   background: var(--primary-secondary);
   border-radius: var(--radius-l);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
-.feedForm {
+.mobileToggle {
+  display: none;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-direction: column;
   gap: 20px;
 }
 
+.feedForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+@keyframes refreshRoll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.addRssBtn, .refreshBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  background: var(--white-color);
+}
+
+.addRssBtn:hover, .refreshBtn:hover {
+  background: var(--primary-hover);
+}
+
+.refreshBtn:hover .refreshIcon {
+  animation: refreshRoll .5s linear;
+}
+
+.addRssBtn:hover .plusIcon {
+  transform: scale(1.2);
+}
+
+.plusIcon, .refreshIcon {
+  transition: all .15s ease-in-out;
+  width: 30px;
+  height: 23px;
+}
+
+.addRssBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background: var(--white-color);
+}
+
 .tagList {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .feedTags {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
 }
 
-.aviavableTags {
-  color: var(--text-color);
-  font-size: var(--font-size-md);
-}
-
+.aviavableTags,
 .addFeedTitle {
   color: var(--text-color);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
 }
 
 .option {
-  padding: 10px;
-  margin: 5px;
-  cursor: pointer;
+  padding: 6px 12px;
   font-size: var(--font-size-xs);
   background: var(--white-color);
   border-radius: 20px;
-  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .option:hover {
-  color: var(--text-color);
   background: var(--hover-color);
+  transform: scale(1.05);
+}
+
+
+@media screen and (max-width: 768px) {
+  .feedControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
+
+  .mobileToggle {
+    display: flex;
+  }
+
+  .container {
+    display: none;
+  }
+
+  .container.mobileOpen {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 }
