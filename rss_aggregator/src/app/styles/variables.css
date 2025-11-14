@@ -33,10 +33,4 @@
   --radius-m: 10px;
   --radius-l: 15px;
   --radius-xl: 20px;
-
-  /* Брейкпоинты */
-  --breakpoint-xxs: 368px;
-  --breakpoint-xs: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 968px;
 }

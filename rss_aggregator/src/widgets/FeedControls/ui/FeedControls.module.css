@@ -123,7 +123,7 @@
   transform: scale(1.05);
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .feedControls {
     position: sticky;
     width: 100%;
