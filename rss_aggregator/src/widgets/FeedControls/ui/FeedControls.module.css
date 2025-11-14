@@ -14,6 +14,10 @@
   scrollbar-width: none;
 }
 
+.feedControls::-webkit-scrollbar {
+  display: none;
+}
+
 .mobileToggle {
   display: none;
   background: transparent;
@@ -37,7 +41,6 @@
   flex-direction: column;
   gap: 12px;
 }
-
 
 @keyframes refreshRoll {
   from {
@@ -111,6 +114,8 @@
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-sizing: border-box;
+  user-select: none;
 }
 
 .option:hover {
@@ -118,26 +123,44 @@
   transform: scale(1.05);
 }
 
-
 @media screen and (max-width: 768px) {
   .feedControls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
+    position: sticky;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    padding: 16px;
+    margin-bottom: 20px;
   }
 
   .mobileToggle {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: var(--radius-m);
+    cursor: pointer;
+    margin-bottom: 10px;
   }
 
   .container {
     display: none;
+    width: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
   }
 
   .container.mobileOpen {
     display: flex;
     animation: fadeIn 0.3s ease-in-out;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding: 10px;
   }
 
   @keyframes fadeIn {
