@@ -1,14 +1,14 @@
 import styles from "./Error.module.css";
-import errorImg from "./assets/errorImg.png";
+import { MdOutlineErrorOutline } from "react-icons/md";
 
-const Error = ({ errorCode, errorText }) => {
+const Error = ({ errorCode, errorMessage }) => {
   return (
-    <div className={styles.error}>
-      <p className={styles.errorText}>
-        {errorText}
-        {errorCode}
-      </p>
-      <img src={errorImg} alt="errorImg" className={styles.img} />
+    <div className={styles.errorOverlay}>
+      <div className={styles.error}>
+        <span className={styles.errorMessage}>{errorMessage}</span>
+        <span className={styles.errorCode}>{errorCode}</span>
+        <MdOutlineErrorOutline className={styles.errorIcon} />
+      </div>
     </div>
   );
 };
