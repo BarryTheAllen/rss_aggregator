@@ -1,11 +1,11 @@
 .input {
-  background: #d4d4d4;
+  background: var(--white-color);
   border-radius: var(--radius-m);
-  padding: 5px;
+  padding: var(--space-s);
   border: 1px solid transparent;
   transition: all 0.3s ease-in-out;
 }
 
 .input:focus {
-  border: 1px solid #3b3b3b;
+  border: 1px solid var(--hover-color);
 }
