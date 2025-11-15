@@ -3,7 +3,6 @@ import styles from "./Header.module.css";
 import Logo from "@/shared/UI/Logo";
 import { useLogoutUser, useProfileUser } from "@/entities/Auth/api/hooks";
 import logoutpic from "../assets/logout.png";
-import BurgerMenu from "@/shared/UI/BurgerMenu";
 
 const Header = () => {
   const { data: user, isLoading, isError, error } = useProfileUser();
@@ -25,27 +24,18 @@ const Header = () => {
   }
   return (
     <header className={styles.header}>
-      <div className={styles.block}>
-        <Link to={"/Home"}>
-          <Logo />
-        </Link>
-        <BurgerMenu />
-      </div>
+      <Link to={"/Home"}>
+        <Logo />
+      </Link>
       {user && (
-        <div className={styles.wrapper}>
-          <div className={styles.profile}>
-            <p className={styles.avatar}>{user.username.slice(0, 1)}</p>
-            <div className={styles.profileName}>
-              <h3>{user.username}</h3>
-              <div className={styles.logoutBtn} onClick={logout}>
-                <p className={styles.logoutText}>Logout</p>
-                <img
-                  className={styles.logoutImg}
-                  src={logoutpic}
-                  alt="logout"
-                />
-              </div>
-            </div>
+        <div className={styles.profile}>
+          <p className={styles.avatar}>{user.username.slice(0, 1)}</p>
+          <div className={styles.block}>
+            <h3 className={styles.userName}>{user.username}</h3>
+            <button className={styles.logoutBtn} onClick={logout}>
+              <p className={styles.logoutText}>Logout</p>
+              <img className={styles.logoutImg} src={logoutpic} alt="logout" />
+            </button>
           </div>
         </div>
       )}
