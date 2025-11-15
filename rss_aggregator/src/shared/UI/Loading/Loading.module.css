@@ -13,12 +13,30 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
+@keyframes loadingText {
+  0% { content: ""; }
+  25% { content: "."; }
+  50% { content: ".."; }
+  75% { content: "..."; }
+  100% { content: "..."; }
+}
+
 .loadingTitle {
   font-size: var(--font-size-xl);
   color: var(--text-color);
+  position: relative;
 }
 
-@keyframes loading {
+.loadingTitle::before {
+  content: "Loading";
+}
+
+.loadingTitle::after {
+  content: "";
+  animation: loadingText 1.5s infinite step-end;
+}
+
+@keyframes loadingIcon {
   0% {
     transform: rotate(0deg);
   }
@@ -27,9 +45,10 @@
   }
 }
 
-.loadingImg {
+.loadingIcon {
   width: 45px;
   height: 45px;
   margin: 10px;
-  animation: loading 3s linear infinite;
+  color: var(--white-color);
+  animation: loadingIcon 3s linear infinite;
 }

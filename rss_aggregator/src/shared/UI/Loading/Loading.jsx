@@ -1,11 +1,11 @@
 import styles from "./Loading.module.css";
-import loadingImg from "./assets/loading.png";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Loading = () => {
   return (
     <div className={styles.loading}>
-      <p className={styles.loadingTitle}>Loading...</p>
-      <img src={loadingImg} className={styles.loadingImg} alt="loading" />
+      <p className={styles.loadingTitle}></p>
+      <AiOutlineLoading3Quarters className={styles.loadingIcon} />
     </div>
   );
 };
